@@ -1,8 +1,29 @@
 aid: beep
 name: Beep
-description: Beep is a company surfaced as a portfolio company of 500-global and added to the API Evangelist
-  network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  Beep (Just Beep It!) is a visual feedback and web collaboration platform that
+  helps teams review live websites, report bugs, run user testing, and collect
+  ideas directly on the page. Delivered primarily as a browser extension, it lets
+  users annotate any web page, leave comments, attach files, and record their
+  screen so feedback moves faster and projects ship sooner. The product targets
+  agencies, product teams, and builders, offers a free tier plus a paid
+  SuperBeeper plan and enterprise pricing, and is built on Wix. It exposes no
+  bespoke developer REST API, but its Wix-powered site publishes an llms.txt and
+  a public Wix Site MCP endpoint for agentic AI access. Surfaced as a portfolio
+  company of 500 Global and added to the API Evangelist network.
 url: https://raw.githubusercontent.com/api-evangelist/beep/refs/heads/main/apis.yml
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source: []
+  generated: '2026-07-22'
+  method: derived
+image: https://static.wixstatic.com/media/40f9cb_6f4f76340b2b4f9d93a0e87d1d6913d6~mv2.png/v1/fill/w_1152,h_648,al_c/40f9cb_6f4f76340b2b4f9d93a0e87d1d6913d6~mv2.png
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
@@ -11,9 +32,16 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-18'
 tags:
 - Company
+- Collaboration
+- Feedback
+- Bug Reporting
+- Website Review
+- Productivity
+- Browser Extension
+- MCP
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -23,3 +51,30 @@ maintainers:
 common:
 - type: Website
   url: https://justbeepit.com
+- type: Pricing
+  url: https://www.justbeepit.com/pricing
+- type: SignUp
+  url: https://web.justbeepit.com/auth?active=signup
+- type: Login
+  url: https://web.justbeepit.com/auth
+- type: Support
+  url: https://help.justbeepit.com/
+- type: Blog
+  url: https://www.justbeepit.com/blog
+- type: Roadmap
+  url: https://www.justbeepit.com/roadmap
+- type: PrivacyPolicy
+  url: https://www.justbeepit.com/privacypolicy
+- type: TermsOfService
+  url: https://www.justbeepit.com/eusa-terms-of-use
+- type: MCPServer
+  url: mcp/beep-mcp.yml
+- type: LLMsTxt
+  url: llms/beep-llms.txt
+- type: DomainSecurity
+  url: security/beep-domain-security.yml
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence
