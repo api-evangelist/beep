@@ -4,58 +4,60 @@ status: published
 source: https://justbeepit.com/llms.txt
 server:
   name: just-beep-it-site-mcp
-  description: >-
-    Wix Site MCP endpoint for justbeepit.com. A hosted, unauthenticated Model
-    Context Protocol server exposing this Wix-powered site's live business
-    details, search, and Wix business-solution APIs to AI agents. Provided by
-    the Wix Site MCP platform, not a bespoke Beep API.
+  description: Wix Site MCP endpoint for justbeepit.com. A hosted, unauthenticated Model Context Protocol
+    server exposing this Wix-powered site's live business details, search, and Wix business-solution APIs
+    to AI agents. Provided by the Wix Site MCP platform, not a bespoke Beep API.
   transport: http
   url: https://www.justbeepit.com/_api/mcp
   authentication: none
   docs: https://dev.wix.com/docs/develop-websites/articles/get-started/about-the-wix-site-mcp
 tools:
-  - name: GetBusinessDetails
-    description: Retrieves business and site details such as timezone, email, phone, and address.
-  - name: SearchInSite
-    description: Searches the site for information.
-    parameters:
-      - name: searchTerm
-        description: The term to search for in the site.
-  - name: SearchSiteApiDocs
-    description: >-
-      Retrieves the API documentation for the Wix business solutions installed on this
-      site, and informs the AI client how to use the APIs.
-    parameters:
-      - name: searchTerm
-        description: The term to search for in the site API documentation.
-  - name: GenerateVisitorToken
-    description: >-
-      Creates a new visitor session and obtains a visitor access token for the site.
-      Must be called before any CallWixSiteAPI request if no visitor token is available.
-  - name: CallWixSiteAPI
-    description: >-
-      Calls API methods on the site to perform actions on a visitor's behalf, such as
-      querying site data, booking an appointment, or starting a purchase.
-    parameters:
-      - name: visitorToken
-        description: Visitor access token. Use GenerateVisitorToken first if not available.
-      - name: url
-        description: Absolute URL of the API method to call (e.g. https://www.wixapis.com/...).
-      - name: method
-        description: HTTP method to use for the API call.
-      - name: body
-        description: Request body as a valid JSON string.
-  - name: ReadFullDocsArticle
-    description: Fetches a complete article from the Wix developer documentation portal.
-    parameters:
-      - name: articleUrl
-        description: URL of an article in the Wix developer documentation portal.
-  - name: ReadFullDocsMethodSchema
-    description: Fetches the full schema for a Wix API method.
-    parameters:
-      - name: articleUrl
-        description: URL of the reference article for the Wix API method.
-notes: >-
-  Discovered via the site's published /llms.txt. The endpoint is a standard Wix
-  Site MCP surface (public information only); Beep does not publish a bespoke
-  developer API or OpenAPI. No authentication required to connect.
+- name: GetBusinessDetails
+  description: Retrieves business and site details such as timezone, email, phone, and address.
+- name: SearchInSite
+  description: Searches the site for information.
+  parameters:
+  - name: searchTerm
+    description: The term to search for in the site.
+- name: SearchSiteApiDocs
+  description: Retrieves the API documentation for the Wix business solutions installed on this site,
+    and informs the AI client how to use the APIs.
+  parameters:
+  - name: searchTerm
+    description: The term to search for in the site API documentation.
+- name: GenerateVisitorToken
+  description: Creates a new visitor session and obtains a visitor access token for the site. Must be
+    called before any CallWixSiteAPI request if no visitor token is available.
+- name: CallWixSiteAPI
+  description: Calls API methods on the site to perform actions on a visitor's behalf, such as querying
+    site data, booking an appointment, or starting a purchase.
+  parameters:
+  - name: visitorToken
+    description: Visitor access token. Use GenerateVisitorToken first if not available.
+  - name: url
+    description: Absolute URL of the API method to call (e.g. https://www.wixapis.com/...).
+  - name: method
+    description: HTTP method to use for the API call.
+  - name: body
+    description: Request body as a valid JSON string.
+- name: ReadFullDocsArticle
+  description: Fetches a complete article from the Wix developer documentation portal.
+  parameters:
+  - name: articleUrl
+    description: URL of an article in the Wix developer documentation portal.
+- name: ReadFullDocsMethodSchema
+  description: Fetches the full schema for a Wix API method.
+  parameters:
+  - name: articleUrl
+    description: URL of the reference article for the Wix API method.
+notes: Discovered via the site's published /llms.txt. The endpoint is a standard Wix Site MCP surface
+  (public information only); Beep does not publish a bespoke developer API or OpenAPI. No authentication
+  required to connect.
+deployment:
+  mode: remote
+  endpoint: https://www.justbeepit.com/_api/mcp
+  verified: probed
+  probe: live
+  tools: 9
+  checked: '2026-08-12'
+  source: catalog MCP census
